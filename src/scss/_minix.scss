@@ -1,0 +1,114 @@
+/**
+  css函数
+ */
+@import "variables";
+
+@mixin border-radius-one($position1, $position2, $radius) {
+  @if $position1 == top {
+    @if $position2 == left {
+      border-top-left-radius: $radius;
+    } @else {
+      border-top-right-radius: $radius;
+    }
+  } @else if $position1 == bottom {
+    @if $position2 == left {
+      border-bottom-left-radius: $radius;
+    } @else {
+      border-bottom-right-radius: $radius;
+    }
+  } @else {
+    border-radius: $radius;
+  }
+}
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin border($direction: bottom, $borderColor: $border-color) {
+  
+  background-repeat: no-repeat;
+  @if $direction == top or $direction == bottom {
+    background-size: 100% 1px;
+    background-position: $direction left;
+    @if $direction == top {
+      background-image: linear-gradient(180deg, $borderColor, $borderColor 50%, transparent 50%);
+    } @else {
+      background-image: linear-gradient(360deg, $borderColor, $borderColor 50%, transparent 50%);
+    }
+  } @else if $direction == right or $direction == left {
+    background-size: 1px 100%;
+    background-position: bottom $direction;
+    @if $direction = right {
+      background-image: linear-gradient(270deg, $borderColor, $borderColor 50%, transparent 50%);
+    } @else {
+      background-image: linear-gradient(90deg, $borderColor, $borderColor 50%, transparent 50%);
+    }
+  }
+}
+
+/**
+  边框函数
+  $directions 是一个数组 (T, B, R, L)
+  T代表top， B代表bottom, R代表right, L代表left 循序无关
+  $borderColor 颜色值
+ */
+@mixin myBorders($directions, $borderColor: $border-color) {
+  $directionsMap: (
+    L: linear-gradient(90deg, $borderColor, $borderColor 50%, transparent 50%) bottom left no-repeat,
+    R: linear-gradient(270deg, $borderColor, $borderColor 50%, transparent 50%) bottom right no-repeat,
+    T: linear-gradient(180deg, $borderColor, $borderColor 50%, transparent 50%) top left no-repeat,
+    B: linear-gradient(360deg, $borderColor, $borderColor 50%, transparent 50%) bottom left no-repeat
+  );
+  $sizesMap: (
+    L: 1px 100%,
+    R: 1px 100%,
+    T: 100% 1px,
+    B: 100% 1px
+  );
+  $dirResult: ();
+  $sizResult: ();
+  @each $direction in $directions {
+    $dirResult: append($dirResult, map_get($directionsMap, $direction), comma);
+    $sizResult: append($sizResult, map_get($sizesMap, $direction), comma);
+  }
+  background: $dirResult;
+  background-size: $sizResult;
+}
+
+/**
+  hover效果
+ */
+@mixin active($bg: $white, $active-color: $bg-color-active) {
+  background-color: $bg;
+  &:active{
+    background-color: $active-color;
+  }
+}
+
+@mixin mask() {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2000;
+}
+
+@mixin fixed-center() {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  text-align: center;
+  z-index: 2001;
+}
+

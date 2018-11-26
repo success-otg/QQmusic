@@ -1,0 +1,193 @@
+@import "../scss/variables";
+
+.fixed-box {
+  width: 100%;
+  height: 2.64rem;
+  background-color: $bg-color-littlewhite;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.page-common-qyzb {
+  height: .725rem;
+  padding: 0 .1rem;
+  background-color: $bg-color-white;
+  border-bottom: 1px solid $border-color-lightest;
+  > div {
+    width: 50%;
+    height: .725rem;
+    &.page-common-qyzb-left {
+      float: left;
+      width: 45%;
+    }
+    &.page-common-qyzb-right {
+      float: right;
+      width: 45%;
+    }
+    .page-common-qyzb-left-title, .page-common-qyzb-right-title {
+      font-size: $font-size-big;
+      color: $black-littlelight;
+      height: .2rem;
+      margin-top: .08rem;
+      margin-bottom: .105rem;
+    }
+    .page-common-qyzb-left-process, .page-common-qyzb-right-process {
+      height: .06rem;
+      position: relative;
+      margin-bottom: .05rem;
+      b {
+        position: absolute;
+        height: .06rem;
+        width: 100%;
+        background-color: $bg-color-white;
+        border: 1px solid $border-color-process;
+        border-radius: $border-radius-base;
+        box-sizing: border-box;
+      }
+      span {
+        position: absolute;
+        height: .06rem;
+        width: 0;
+        background-color: #1CC6D0;
+        border-radius: $border-radius-base;
+      }
+    }
+    .page-common-qyzb-left-numprocess, .page-common-qyzb-right-numprocess {
+      font-size: $font-size-littlesmaller;
+      color: $gray;
+    }
+  }
+}
+
+.page-common-ljsj {
+  height: .515rem;
+  padding: .06rem .1rem;
+  background-color: $bg-color-white;
+  > div {
+    width: 33%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    > p:first-child {
+      margin-top: .04rem;
+      font-size: $font-size-smaller;
+      color: $border-color-dark;
+    }
+    > p:last-child {
+      margin-top: .035rem;
+      font-size: $font-size-middle;
+      color: $black-light;
+    }
+  }
+  .page-common-ljsj-bnlj {
+    border-right: 1px solid $border-color-lightest;
+  }
+  .page-common-ljsj-sntq {
+    border-right: 1px solid $border-color-lightest;
+  }
+  .page-common-ljsj-tb {
+    .page-common-ljsj-bnlj-num {
+      i {
+        color: $red-little;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.page-common-qyxx {
+  padding: .05rem .1rem 0;
+  margin-top: .1rem;
+  height: .75rem;
+  background-color: $bg-color-white;
+  box-shadow: 6px 0 12px rgba(151, 190, 253, 0.2);
+  .page-common-qyxx-char {
+    float: left;
+    width: .69rem;
+    height: .69rem;
+  }
+  .page-common-qyxx-box {
+    padding-left: .8rem;
+    height: .69rem;
+    > p {
+      height: .345rem;
+      line-height: .345rem;
+      &.page-common-qyxx-name {
+        border-bottom: 1px solid $border-color-lightest;
+        font-size: $font-size-middle;
+        color: $gray-darker;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      &.page-common-qyxx-num {
+        font-size: $font-size-littlesmaller;
+        .page-common-qyxx-num-text {
+          color: $gray;
+        }
+        .page-common-qyxx-num-bnlj {
+          font-weight: bold;
+          color: $red-little;
+          margin-right: .1rem;
+          font-size: $font-size-littlesmaller;
+        }
+        .page-common-qyxx-num-sntq {
+          font-weight: bold;
+          color: $blue-light;
+          font-size: $font-size-littlesmaller;
+        }
+      }
+    }
+  }
+}
+
+.page-common-qylist {
+  margin-top: .1rem;
+  //padding: 0 .1rem;
+  border-radius: $border-radius-base;
+  .page-common-qylist-pmbox {
+    box-shadow: 6px 0px 12px rgba(151, 190, 253, 0.2);
+    ul {
+      background-color: $bg-color-white;
+      overflow: hidden;
+      border-bottom: 1px solid #EBEBEB;
+      padding-left: .1rem;
+      &:first-child {
+        border-top: 1px solid #EBEBEB;
+      }
+      &:last-child {
+        li {
+          border: 0;
+        }
+      }
+      &.selected {
+        background-color: #F4F5FA;
+        color: #4FA3FC;
+        li:first-child {
+          color: #4FA3FC;
+        }
+      }
+      li {
+        float: left;
+        height: .47rem;
+        line-height: .47rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        &:first-child {
+          width: 85%;
+          font-size: $font-size-base;
+          color: $black-lighter;
+        }
+        &:last-child {
+          width: 15%;
+          text-align: center;
+          font-size: $font-size-small;
+          color: $gray-littledark;
+        }
+      }
+    }
+  }
+}
