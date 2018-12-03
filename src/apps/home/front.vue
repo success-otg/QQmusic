@@ -264,8 +264,6 @@
         isShow:false
       }
     },
-    mounted(){
-    },
     methods:{
       changeIndex(index){
         this.index = index

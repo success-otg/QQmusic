@@ -33,6 +33,7 @@ document.documentElement.style.fontSize = document.documentElement.clientWidth /
 window.axios = axios;
 window.session = session;
 window.getPy = getPy;
+Vue.prototype.$axios = axios
 Vue.$global = Vue.prototype.$global = {};
 Vue.component('czy-footer', czyFooter);
 Vue.component('czy-header', czyHeader);

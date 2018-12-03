@@ -32,12 +32,6 @@ const router = new Router({
   }
 });
 router.beforeEach((to, from, next) => {
-  if (to.meta.title) {
-    ddSetTitle(to.meta.title);
-    dd.ready(() => {
-      dd.biz.navigation.setTitle({title: to.meta.title});
-    });
-  }
   if (to.meta.requireAuth) {  // 登录权限
     if (session.getSession('USERINFO')) {
       console.log('已登录，跳转到:' + to.fullPath);

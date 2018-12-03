@@ -31,7 +31,7 @@ axios.interceptors.response.use((res) => {
   if (HTTP_STATUS.CODES.SUCCESS[res.status]) {
     if (res.data.retCode !== '0' && !res.config.hideCodeError) {
       let msg = res.data.retMsg || '数据获取失败'
-      ddAlert(errorMsg, '提示', '确定')
+      // ddAlert(errorMsg, '提示', '确定')
     }
     return res
   } else {
@@ -53,7 +53,7 @@ axios.interceptors.response.use((res) => {
     } else {
       errorMsg = JSON.stringify(error)
     }
-    ddAlert(errorMsg, '提示', '确定')
+    // ddAlert(errorMsg, '提示', '确定')
   }
   errorMessage(error)
   
